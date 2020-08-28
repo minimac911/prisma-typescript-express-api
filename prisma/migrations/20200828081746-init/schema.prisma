@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Post{
+  id Int @default(autoincrement()) @id
+  title String
+  content String?
+  createdAt DateTime @default(now())
+  user User @relation(fields: [authorId], references: [id])
+  authorId Int
+}
+
+// TODO: look into using a seperate table called profile
+
+model User{
+  id Int @default(autoincrement()) @id
+  username String @unique
+  email String @unique
+  password String 
+  role      Role     @default(USER)
+  biography String?
+  post Post[]
+}
+
+enum Role {
+  USER
+  ADMIN
+}
