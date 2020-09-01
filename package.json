@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node dist/index",
     "webpack": "webpack --config webpack.config.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "npx prisma generate",
+    "introcept": "npx prisma introcept",
+    "migrate": "npx prisma migrate up --experimental"
   },
   "keywords": [],
   "author": "",
