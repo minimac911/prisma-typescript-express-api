@@ -4,6 +4,7 @@ const nodeExternals = require("webpack-node-externals");
 
 module.exports = {
   entry: ["webpack/hot/poll?100", "./src/index.ts"],
+  devtool: "source-map",
   watch: true,
   target: "node",
   externals: [
